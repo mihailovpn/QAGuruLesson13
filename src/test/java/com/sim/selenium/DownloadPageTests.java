@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class DownloadPageTests {
+public class DownloadPageTests extends TestBase {
     DownloadPage downloadPage = new DownloadPage();
     String headerText = "Downloads";
+
 
     @Test
     void HeaderPageTest() {
         downloadPage.openPage();
-        //Configuration.startMaximized = true;
         $(downloadPage.headerLocator).shouldHave(Condition.text(headerText));
 
 
