@@ -20,13 +20,13 @@ public class TestBase {
     }
 
     @AfterEach
-    static void afterEach() {
+    void afterEach() {
         pageSource();
         screenshotAs("LastScreenshot");
     }
 
     @Attachment(value = "Page source", type = "text/plain")
-    public static byte[] pageSource() {
+    public byte[] pageSource() {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
@@ -34,5 +34,4 @@ public class TestBase {
     public static byte[] screenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
-
 }
